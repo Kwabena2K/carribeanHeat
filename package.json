@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kwabena2K/recipeBlog.git"
+    "url": "git+https://github.com/Kwabena2K/recipeBlog.git",
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -28,5 +30,8 @@
     "express-session": "^1.17.3",
     "mongodb": "^4.10.0",
     "mongoose": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
