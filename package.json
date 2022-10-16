@@ -28,6 +28,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-fileupload": "^1.4.0",
     "express-session": "^1.17.3",
+    "font-awesome": "^4.7.0",
     "mongodb": "^4.10.0",
     "mongoose": "^6.6.5"
   },
