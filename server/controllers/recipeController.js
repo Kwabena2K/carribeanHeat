@@ -1,42 +1,53 @@
 require("../models/database")
 const Category = require("../models/Category")
+const recipe = require("../models/recipe")
 
 
 // GET /
-// Homepage
+// Homepage controller
 
 exports.homepage = async (req, res) => {
-    res.render("index", {title: "Recipe Blog - Home"});
+
+    try {
+    // Database query to grab the categories
+
+        const limitNumber = 5;
+        const categories = await Category.find({}).limit(limitNumber);
+  res.render("index", {title: "Carribean Heat - Online Menu", categories});   
+} catch (error) {
+        res.status(500).send({ message: error.message || "Error Occured" });
+}
+  
 };
 
 
-async function insertDymmyCategoryData() {
+
+// GET /categories
+// Categories controller
+exports.categories = async (req, res) => {
+
     try {
-        await Category.insertMany([
-            {
-                "name": "Thai",
-                "image": "thai-food.jpg"
-            },
-            {
-                "name": "American",
-                "image": "american-food.jpg"
-            },
+    // Database query to grab the categories
 
-            {
-                "name": "Spanish",
-                "image": "spanish-food.jpg"
-            },
+        const limitNumber = 20;
+        const categories = await Category.find({}).limit(limitNumber);
+  res.render("categories", {title: "Carribean Heat - Categories", categories});   
+} catch (error) {
+        res.status(500).send({ message: error.message || "Error Occured" });
+}
 
-            {
-                "name": "Chinese",
-                "image": "chinese-food.jpg"
-            }, {
-                "name": "Indian",
-                "image": "indian-food.jpg"
-            },
-        ]);
+
+
+   
+};
+
+
+
+async function insertDymmyrecipeData() {
+    try {
+        await recipe.insertMany();
     } catch (error) {
         console.log("err", + error)
     }
 }
-insertDymmyCategoryData();
+insertDymmyrecipeData();
