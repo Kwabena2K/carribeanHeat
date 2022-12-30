@@ -19,5 +19,3 @@ const routes = require("./server/routes/recipeRoutes.js");
 app.use("/", routes);
 
 app.listen(port, () => console.log(`Listening to the port ${port}`));
-
-// 1:39:3
