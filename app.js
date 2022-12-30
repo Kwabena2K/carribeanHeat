@@ -3,7 +3,7 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 require("dotenv").config();
 
@@ -19,3 +19,5 @@ const routes = require("./server/routes/recipeRoutes.js");
 app.use("/", routes);
 
 app.listen(port, () => console.log(`Listening to the port ${port}`));
+
+// 1:39:3
